@@ -1,0 +1,23 @@
+npm init -y
+
+package.json 파일에서 main과 test를 지우고
+
+npm i -D typescript
+
+src 폴더를 만들고 안에 index.ts 파일을 만들어고
+
+tsconfig.json 파일을 생성 (이름 틀리면 안됌)
+
+해당 파일 안에 다음을 작성
+{
+  "include": ["src"]        //src 폴더 안의 내용을 다 본다는 뜻
+  "compilerOptions": {
+    "outDir":"build"             //자바스크립트 파일이 생성될 위치
+  }
+}
+
+이후 package.json의 scripts의 중괄호에  "build": "tsc" 를 추가
+
+이후 npm run build를 입력하면 build 폴더에 js 파일이 추가 됌
+이 파일은 TS파일을 JS로 바꿔주는 폴더
+
