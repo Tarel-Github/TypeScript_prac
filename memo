@@ -13,7 +13,7 @@ tsconfig.json 파일을 생성 (이름 틀리면 안됌)
   "include": ["src"]        //src 폴더 안의 내용을 다 본다는 뜻
   "compilerOptions": {
     "outDir":"build"             //자바스크립트 파일이 생성될 위치
-    "target": "ES3"             //어떤 버전의 JS로 TS를 컴파일 하고 싶은가
+    "target": "ES6"             //어떤 버전의 JS로 TS를 컴파일 하고 싶은가
   }
 }
 
@@ -21,4 +21,7 @@ tsconfig.json 파일을 생성 (이름 틀리면 안됌)
 
 이후 npm run build를 입력하면 build 폴더에 js 파일이 추가 됌
 이 파일은 TS파일을 JS로 바꿔주는 폴더
+이후에 npm run build를 실행하면 build폴더에 js로 컴파일 된다.
+
+버전은 대부분 ES6를 쓰지만 구버전 서버를 쓴다면 직접 버전을 바꿔줘야 한다.
 
