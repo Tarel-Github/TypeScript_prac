@@ -10,11 +10,13 @@ tsconfig.json 파일을 생성 (이름 틀리면 안됌)
 
 해당 파일 안에 다음을 작성
 {
-  "include": ["src"]        //src 폴더 안의 내용을 다 본다는 뜻
+  "include": ["src"],        //src 폴더 안의 내용을 다 본다는 뜻
   "compilerOptions": {
-    "outDir":"build"             //자바스크립트 파일이 생성될 위치
+    "outDir":"build",             //자바스크립트 파일이 생성될 위치
     "target": "ES6",             //어떤 버전의 JS로 TS를 컴파일 하고 싶은가
-    "lib": ["ES6","DOM"]          //TS가 어디서 동작할지 지정, 브라우저를 위한 코드다 라는 뜻
+    "lib": ["ES6","DOM"],          //TS가 어디서 동작할지 지정, 브라우저를 위한 코드다 라는 뜻, 브라우저에서 돌릴게 아니라면 DOM을 뺀다.
+    "allowJs": true,              //JS와 TS를 동시에 쓰겠다는 표현
+    "esModuleInterop": true       //모듈 추가용
   }
 }
 
@@ -26,6 +28,17 @@ tsconfig.json 파일을 생성 (이름 틀리면 안됌)
 
 버전은 대부분 ES6를 쓰지만 구버전 서버를 쓴다면 직접 버전을 바꿔줘야 한다.
 
+이후 npm i -D ts-node를 설치, 노드몬도 설치해줄 수 있다.
+
+스크립트 부분을 다음과 같이 수정
+  "scripts": {
+    "build": "tsc",
+    "dev": "nodemon --exec ts-node src/index.ts",
+    "start": "node build/index.js"
+  },
+
+이제 npm run dev로 index.ts를 실행한다.
+이제 index 파일에다가 뭐든 적어서 실행해보자
 
 /////////////////////////////////////////////////////
 "lib": ["ES6","DOM"] 가 없으면 코드 작성할 때
